@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
 dependencies {
     compile gradleApi()
@@ -10,3 +11,11 @@ repositories {
 
 group = 'com.iadams.buildmgmt'
 version = '1.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
