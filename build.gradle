@@ -1,0 +1,12 @@
+apply plugin: 'groovy'
+
+dependencies {
+    compile gradleApi()
+    groovy localGroovy()
+}
+repositories {
+    mavenCentral()
+}
+
+group = 'com.iadams.buildmgmt'
+version = '1.0'
