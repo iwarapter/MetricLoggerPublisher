@@ -3,13 +3,14 @@ apply plugin: 'maven'
 
 dependencies {
     compile gradleApi()
-    groovy localGroovy()
+    groovy "org.codehaus.groovy:groovy-all:1.8.6"
+    testCompile 'org.spockframework:spock-core:0.6-groovy-1.8'
 }
 repositories {
     mavenCentral()
 }
 
-group = 'com.iadams.buildmgmt'
+group = 'com.iadams.BuildMgmt'
 version = '1.0'
 
 uploadArchives {
