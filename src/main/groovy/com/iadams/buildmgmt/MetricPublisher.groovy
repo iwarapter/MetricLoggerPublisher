@@ -8,5 +8,7 @@ class MetricPublisher implements Plugin<Project> {
     def void apply(Project project) {
         def buildHook = new PublishMetrics()
         project.gradle.addBuildListener(buildHook)
+        project.extensions.create('MetricPublisher', MetricPublisherPluginExtension)
+        project.MetricPublisher.extensions.create('context', MetricPublisherPluginContextExtension)
     }
 }

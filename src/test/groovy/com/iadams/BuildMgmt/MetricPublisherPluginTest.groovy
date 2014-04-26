@@ -21,4 +21,17 @@ class MetricPublisherPluginTest extends Specification{
         then: "I have the plugin added"
             project.plugins.hasPlugin(MetricPublisher)
     }
+
+    def "Configure the plugin extensions"() {
+        when: "I apply the plugin and configure the properties"
+            project.apply plugin: 'MetricPublisher'
+
+            project.MetricPublisher {
+                url = "http://myserver:8080/MetricLogger"
+            }
+
+        then:
+            project.extensions.findByName('MetricPublisher') != null
+            project.extensions.MetricPublisher.url == "http://myserver:8080/MetricLogger"
+    }
 }
